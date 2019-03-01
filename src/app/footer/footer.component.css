@@ -1,0 +1,29 @@
+.emailSub {
+  padding-bottom:10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer__search {
+  padding: 30px 0px;
+  background: black;
+  color: white;
+  border-bottom-color: white;
+}
+
+#top-footer {
+  background: black;
+  color: white;
+}
+
+.li {
+  margin: 10px;
+}
+
+button {
+  border-radius: 10px;
+}
+
+.footer-bg-1 {
+  background: url("https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  height: 100px;
+}

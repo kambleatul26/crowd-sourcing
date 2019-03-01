@@ -1,0 +1,30 @@
+<div class="container" style="">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
+            <form action="" (submit)="onLogin(postForm)" #postForm="ngForm">
+              <mat-card-content>
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="User Name" name="username" ngModel required #username="ngModel" username>
+                        <mat-error *ngIf="username.invalid">Please Enter Username</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="password" name="password" ngModel required #password="ngModel" password>
+                        <mat-error *ngIf="password.invalid">Please Enter Password</mat-error>
+                    </mat-form-field>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-raised-button type="submit" color="primary">Login</button>
+                    <button mat-raised-button color="warn">FORGOT PASSWORD</button>
+                  </mat-card-actions>
+                  New here ? Join us <button class="btn btn-outline-secondary" (click)="sign()">SIGNUP</button>
+                </form>
+          </mat-card>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
