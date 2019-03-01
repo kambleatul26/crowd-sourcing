@@ -14,6 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 import { IndexComponent } from './index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     LoginComponent,
     SignupComponent,
     IndexComponent,
-    DashboardComponent
+    DashboardComponent,
+    FundraiserBlogComponent
   ],
   imports: [
     BrowserModule,
