@@ -11,7 +11,7 @@
         </div>
       </div>
       <h2 class="mt-5">Fundraiser Story</h2>
-      <textarea name="name" rows="8" class="form-control border-0" (input)="updateStory($event)">{{content.blog_content}}</textarea>
+      <textarea name="name" rows="10" class="form-control border-0" [(ngModel)]="content.blog_content">{{content.blog_content}}</textarea>
     </div>
     <div class="col-md-3 border-left">
       <h3 class="text-primary">Rs {{content.blog_amount}}</h3>
