@@ -7,13 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  public isLoggedIn = false;
-
   onLogin(authData) {
     this.http.post('http://yk97.pythonanywhere.com/accounts/login/', authData)
     .subscribe(res => {
       console.log(res);
-      this.isLoggedIn = true;
       this.router.navigate([parent]);
       this.router.navigate(['/index']);
     });
@@ -23,7 +20,6 @@ export class UserService {
     this.http.post('http://yk97.pythonanywhere.com/accounts/login/', authData)
     .subscribe(res => {
       console.log(res);
-      this.isLoggedIn = false;
       this.router.navigate(['../index']);
     });
   }

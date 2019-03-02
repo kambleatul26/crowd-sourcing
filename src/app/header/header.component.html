@@ -23,9 +23,13 @@
             <a class="dropdown-item" href="#" routerLink="signup">Signup</a>
           </div>
         </li>
-        <li class="nav-item">
-          <button *ngIf="loginFlag" (click)="logout()" class="btn btn-warning">LOGOUT</button>
-        </li>
+        <button class="btn float-right nav-item dropdown" *ngIf="loginFlag"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li><button class="btn" ><i class="fas fa-cog"></i> Preferences</button></li>
+              <li><button class="btn" ><i class="fa fa-envelope" aria-hidden="true"></i> Contact Support</button></li>
+              <li><button (click)="logout()" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></li>
+          </ul>
+        </button>
       </ul>
     </div>
   </nav>

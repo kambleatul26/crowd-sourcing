@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginFlag = this.userService.isLoggedIn;
+    // this.loginFlag = this.userService.isLoggedIn;
   }
 
 }
