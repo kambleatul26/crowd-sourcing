@@ -16,7 +16,6 @@ import { IndexComponent } from './index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.component';
-import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.compo
     IndexComponent,
     DashboardComponent,
     FundraiserBlogComponent,
-    FundraiserFormComponent
   ],
   imports: [
     BrowserModule,
