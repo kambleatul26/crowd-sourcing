@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../shared/services/user.service';
 
 export interface Category {
   value: string;
@@ -26,23 +27,16 @@ export class SignupComponent implements OnInit {
     if (Form.invalid) {
       return;
     }
-    // console.log(Form.value.username);
-    // console.log(Form.value.password);
-    // const authData = {email: Form.value.email, password: Form.value.password, username: Form.value.username};
-    // this.http.post('http://localhost:3000/signup', authData)
-    // .subscribe(res => {
-    //   console.log(res);
-    // });
-    // this.postsService.addPosts(Form.value.title, Form.value.content);
-    // Form.resetForm();
+    const authData = {password: Form.value.password, email: Form.value.email};
+    this.userService.onSignup(authData);
+    console.log(authData);
   }
 
   log() {
-    this.router.navigate([parent]);
-    this.router.navigate(['/login']);
+    this.userService.log();
   }
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private userService: UserService) { }
 
   ngOnInit() {
   }
