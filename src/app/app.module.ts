@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatGridListModule, MatMenuModule, MatIconModule } from '@angular/material';
+import {MatStepperModule} from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { IndexComponent } from './index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.component';
+import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +27,20 @@ import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.compo
     SignupComponent,
     IndexComponent,
     DashboardComponent,
-    FundraiserBlogComponent
+    FundraiserBlogComponent,
+    FundraiserFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
+    MatStepperModule,
     RouterModule.forRoot([
       {path: 'home', component: IndexComponent},
       {path: 'signup', component: SignupComponent},

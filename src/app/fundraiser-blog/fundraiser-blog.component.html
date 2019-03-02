@@ -1,6 +1,5 @@
 <div class="container w-80 mx-auto">
-
-  <h1 class="mt-5">{{content.blog_title}}</h1>
+  <input type="text" class="form-control-lg form-control-plaintext border-bottom" style="font-size:30px" [(ngModel)]="content.blog_title">
   <small class="text-muted mb-5">By- <b>{{content.blog_author}}</b></small>
   <div class="row">
     <div class="col-md-9">
@@ -12,7 +11,7 @@
         </div>
       </div>
       <h2 class="mt-5">Fundraiser Story</h2>
-      <textarea name="name" rows="8" class="w-100" (input)="onChange($event)">{{content.blog_content}}</textarea>
+      <textarea name="name" rows="8" class="form-control border-0" (input)="updateStory($event)">{{content.blog_content}}</textarea>
     </div>
     <div class="col-md-3 border-left">
       <h3 class="text-primary">Rs {{content.blog_amount}}</h3>
@@ -22,3 +21,4 @@
     </div>
   </div>
 </div>
+{{content|json}}
