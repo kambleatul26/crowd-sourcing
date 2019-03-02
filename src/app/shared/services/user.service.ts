@@ -10,7 +10,7 @@ import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
 export class UserService {
 
   public isLoggedIn = false;
-  public data: any[];
+  public data: any[]=[];
 
   onSignup(authData) {
     this.http.post('http://192.168.43.169:8000/accounts/register/', authData)
@@ -27,7 +27,7 @@ export class UserService {
       console.log(res);
       this.router.navigate([parent]);
       this.router.navigate(['/index']);
-      this.saveInLocal('key', authData.email);
+      this.saveInLocal('key', res['token']);
     });
   }
 
