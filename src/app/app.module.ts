@@ -23,6 +23,7 @@ import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.compo
 
 import { UserService } from './shared/services/user.service';
 import { StorageServiceModule} from 'angular-webstorage-service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     DashboardComponent,
     FundraiserBlogComponent,
     FundraiserFormComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
       {path: 'login', component: LoginComponent},
       {path: 'raisefund', canActivate: [AuthguardService], component: FundraiserFormComponent},
       {path: 'dashboard', component: DashboardComponent},
+      {path: 'profile', component:UserProfileComponent}
       {path: '**', component: IndexComponent},
     ]),
     MatGridListModule,
