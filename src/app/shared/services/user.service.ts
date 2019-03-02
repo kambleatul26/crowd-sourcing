@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   onLogin(authData) {
-    this.http.post('http://yk97.pythonanywhere.com/accounts/login/', authData)
+    this.http.post('http://192.168.43.169:8000/accounts/api/token/auth/', authData)
     .subscribe(res => {
       console.log(res);
       this.router.navigate([parent]);
