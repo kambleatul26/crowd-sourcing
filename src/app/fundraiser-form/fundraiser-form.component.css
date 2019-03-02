@@ -1,4 +1,4 @@
-input {
+.myInput {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -6,4 +6,10 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+mat-form-field {
+  display: block;
+    width:50%;
+    margin: auto;
 }

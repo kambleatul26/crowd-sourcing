@@ -3,33 +3,60 @@
         <mat-step>
                 <ng-template matStepLabel>Fill out your name</ng-template>
                 <label>AADHAR</label>
-                <input matInput [(ngModel)]="aadhar" placeholder="8888-8888-8888" name="Aadhar" required>
-                <button mat-button matStepperNext (click)="validateMail()">Submit</button>
-                <div *ngIf="aadhar !== undefined && aadhar.length == 12">OTP
-                    <input matInput [(ngModel)]="otp" placeholder="OTP" required>
-                    <button mat-button>Submit</button>
+                <input matInput [(ngModel)]="aadhar" type="number" placeholder="8888-8888-8888" class="myInput" name="Aadhar" required>
+                <button mat-button (click)="validateMail()">Submit</button>
+                <div *ngIf="aadhar !== undefined && aadhar.toString().length == 12">OTP
+                  <input matInput [(ngModel)]="otp" type="number" placeholder="OTP" class="myInput" required>
+                    <button mat-button matStepperNext>Submit</button>
                 </div>
         </mat-step>
-        <mat-step>
-            <form>
-                <ng-template matStepLabel>Fill out your address</ng-template>
-                <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                </div>
-            </form>
-        </mat-step>
-        <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            You are now done.
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
-            </div>
-        </mat-step>
-    </mat-horizontal-stepper>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-card-content *ngIf="otp !== undefined && otp.length == 6">
+          <mat-card-header>
+              <mat-card-title>Enter Fund Details</mat-card-title>
+            </mat-card-header>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="Title" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Goal Amount" formControlName="Goal_Amont" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Beneficiary Name" formControlName="Beneficiary_Name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Relation With Self" formControlName="Relation" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let relation of Relations_List" [value]=relation>
+            {{relation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Type The Purpose of your Fundraiser" formControlName="Story"></textarea>
+        </mat-form-field>
+    </mat-card-content>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 </div>
 
 <!-- Aadhar Number
+  432123968019
 OTP
 SUBMIT
 
