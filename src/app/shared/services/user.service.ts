@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,11 +7,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  onLogin(Form: NgForm) {
-    const authData = {password: Form.value.password, email: Form.value.mail};
+  public isLoggedIn = false;
+
+  onLogin(authData) {
     this.http.post('http://yk97.pythonanywhere.com/accounts/login/', authData)
     .subscribe(res => {
       console.log(res);
+      this.isLoggedIn = true;
+      this.router.navigate([parent]);
+      this.router.navigate(['/index']);
+    });
+  }
+
+  onLogout(authData) {
+    this.http.post('http://yk97.pythonanywhere.com/accounts/login/', authData)
+    .subscribe(res => {
+      console.log(res);
+      this.isLoggedIn = false;
+      this.router.navigate(['../index']);
     });
   }
 
