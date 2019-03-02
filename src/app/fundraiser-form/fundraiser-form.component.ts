@@ -17,6 +17,10 @@ export class FundraiserFormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
+  Relations_List:string[]=[
+    'Self','Parent','College','Mentor','Spouse'
+  ]
+
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -24,7 +28,12 @@ export class FundraiserFormComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      Title: ['', Validators.required],
+      Goal_Amont: ['', Validators.required],
+      Beneficiary_Name: ['', Validators.required],
+      Relation: ['',Validators.required],
+      Story: ['',Validators.required]
     });
+
   }
 }
