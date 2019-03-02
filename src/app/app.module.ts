@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule,
          MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,7 +32,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     IndexComponent,
     DashboardComponent,
     FundraiserBlogComponent,
-    FundraiserFormComponent
+    FundraiserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,8 @@ import { StorageServiceModule} from 'angular-webstorage-service';
       {path: 'home', component: IndexComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'dashboard',component:DashboardComponent},
+      {path: 'raisefund', component: FundraiserFormComponent},
+      {path: 'dashboard', component: DashboardComponent},
       {path: '**', component: IndexComponent},
     ]),
     MatGridListModule,
@@ -61,7 +62,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     LayoutModule,
     StorageServiceModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

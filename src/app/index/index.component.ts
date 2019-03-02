@@ -7,10 +7,10 @@ import {UserService} from '../shared/services/user.service';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    console.log(this.userService.data);
+    console.log(this.userService.getFromLocal('key'));
   }
 
 }

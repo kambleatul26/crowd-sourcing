@@ -8,7 +8,7 @@ import { UserService } from '../shared/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public loginFlag = true;
+  public loginFlag;
 
   constructor(private userService: UserService) { }
 
@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.loginFlag = this.userService.isLoggedIn;
+    this.userService.getFromLocal('loginFlag');
+    this.loginFlag = this.userService.data['loginFlag'];
+    console.log('OKK => ' + this.loginFlag);
   }
-
 }
