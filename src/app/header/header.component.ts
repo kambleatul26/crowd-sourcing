@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public loginFlag = true;
+
+  constructor(private userService: UserService) { }
+
+  logout() {
+    const authData = {password: '123456', email: 'mane@gmail.com'};
+    this.userService.onLogout(authData);
+    this.loginFlag = false;
+  }
 
   ngOnInit() {
+    this.loginFlag = this.userService.isLoggedIn;
   }
 
 }

@@ -13,7 +13,12 @@ export class LoginComponent implements OnInit {
     if (Form.invalid) {
       return;
     }
-    this.userService.onLogin(Form);
+    const authData = {password: Form.value.password, email: Form.value.mail};
+    this.userService.onLogin(authData);
+  }
+
+  sign() {
+    this.userService.sign();
   }
 
   constructor(private userService: UserService) { }
