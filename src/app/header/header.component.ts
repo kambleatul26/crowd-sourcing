@@ -9,6 +9,7 @@ import { UserService } from '../shared/services/user.service';
 export class HeaderComponent implements OnInit {
 
   public loginFlag;
+  public userName;
 
   constructor(private userService: UserService) { }
 
@@ -19,8 +20,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getFromLocal('loginFlag');
-    this.loginFlag = this.userService.data['loginFlag'];
+    this.loginFlag = this.userService.getFromLocal('loginFlag');
+    this.userName = this.userService.getFromLocal('userName');
     console.log('OKK => ' + this.loginFlag);
   }
 }

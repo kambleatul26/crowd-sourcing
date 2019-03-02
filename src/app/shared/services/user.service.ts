@@ -30,6 +30,7 @@ export class UserService {
       this.saveInLocal('key', res['token']);
       if (res['token'] !== undefined) {
         this.saveInLocal('loginFlag', true);
+        this.saveInLocal('userName', authData.email);
       }
     });
   }
@@ -59,6 +60,7 @@ export class UserService {
     console.log('recieved = key:' + key);
     this.data[key] = this.storage.get(key);
     console.log(this.data);
+    return this.data[key];
    }
    constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private router: Router, private http: HttpClient) {
 

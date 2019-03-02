@@ -7,6 +7,7 @@ import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTo
          MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
+import { AuthguardService } from './shared/services/authguard.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -52,7 +53,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
       {path: 'home', component: IndexComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'raisefund', component: FundraiserFormComponent},
+      {path: 'raisefund', canActivate: [AuthguardService], component: FundraiserFormComponent},
       {path: 'dashboard', component: DashboardComponent},
       {path: '**', component: IndexComponent},
     ]),
@@ -62,7 +63,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     LayoutModule,
     StorageServiceModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
