@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule,
          MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
-import { RouterModule, CanActivate } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -62,7 +62,7 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     LayoutModule,
     StorageServiceModule
   ],
-  providers: [UserService, AuthguardService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
