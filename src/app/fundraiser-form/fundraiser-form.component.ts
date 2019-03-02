@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * @title Stepper overview
@@ -17,6 +14,8 @@ import { catchError } from 'rxjs/operators';
 export class FundraiserFormComponent implements OnInit {
   public aadhar: String;
   public otp;
+  public aadharnext = false;
+  public otpnext = false;
   secondFormGroup: FormGroup;
   Relations_List: string[] = ['Self', 'Parent', 'College', 'Mentor', 'Spouse'];
 
@@ -24,14 +23,22 @@ export class FundraiserFormComponent implements OnInit {
     this.http.get('http://192.168.43.169:8000/api/uidai/kyc/' + this.aadhar)
     .subscribe(res => {
       console.log(res);
-      console.log(res['error']['detail']);
+      this.aadharnext = true;
+    }, err => {
+      console.log(err['error']['detail']);
     });
+  }
 
-    // this.http.get('http://192.168.43.169:8000/api/uidai/kyc/' + this.aadhar)
-    // .catch((err: HttpErrorResponse) => {
-    //   // simple logging, but you can do a lot more, see below
-    //   console.error('An error occurred:', err.error);
-    // });
+  validateOtp() {
+    this.http.get('http://192.168.43.169:8000/api/uidai/kyc/otp/' + this.aadhar + '/' + this.otp)
+    .subscribe(res => {
+      console.log(res);
+      if(res === 'success'){
+        this.otpnext = true;
+      }
+    }, err => {
+      console.log(err['error']['detail']);
+    });
   }
 
   constructor(private _formBuilder: FormBuilder, private http: HttpClient) {}

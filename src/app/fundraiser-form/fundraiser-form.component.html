@@ -7,13 +7,13 @@
                 <button mat-button (click)="validateMail()">Submit</button>
                 <div *ngIf="aadhar !== undefined && aadhar.toString().length == 12">OTP
                   <input matInput [(ngModel)]="otp" type="number" placeholder="OTP" class="myInput" required>
-                    <button mat-button matStepperNext>Submit</button>
+                    <button mat-button matStepperNext (click)="validateOtp()">Submit</button>
                 </div>
         </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-card-content *ngIf="otp !== undefined && otp.length == 6">
+      <mat-card-content *ngIf="otpnext">
           <mat-card-header>
               <mat-card-title>Enter Fund Details</mat-card-title>
             </mat-card-header>
