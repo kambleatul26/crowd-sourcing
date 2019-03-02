@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatGridListModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatToolbarModule, MatGridListModule, MatMenuModule, MatIconModule } from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
 
@@ -32,6 +32,8 @@ import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.compo
   ],
   imports: [
     BrowserModule,
+    MatSelectModule,
+    MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -40,6 +42,7 @@ import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.compo
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
+    MatCheckboxModule,
     MatStepperModule,
     RouterModule.forRoot([
       {path: 'home', component: IndexComponent},

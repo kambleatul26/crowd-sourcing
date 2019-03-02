@@ -3,12 +3,24 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+export interface Category {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  categories: Category[] = [
+    {value: 'NGO', viewValue: 'NGO'},
+    {value: 'Medical', viewValue: 'Medical'},
+    {value: 'Personal Cause', viewValue: 'Personal Cause'},
+    {value: 'Creative Ideas', viewValue: 'Creative Ideas'}
+  ];
 
   onSignup(Form: NgForm) {
     if (Form.invalid) {

@@ -1,0 +1,27 @@
+.what_is_div {
+  text-align: justify;
+}
+
+.division {
+  padding-top: 5%;
+  background: #ffe9ec;
+}
+
+.verticalLine {
+  border-left: thin solid rgba(1,1,1,0.9);
+}
+
+.jumbo {
+  text-align: center;
+  color:rgba(1,1,1,0.9);
+  background-color: rgba(0,0,0,0.0);
+}
+
+.innerJumb {
+  margin: 20px;
+  color: rgba(1,1,1,0.4);
+}
+
+.form {
+  width: 20%;
+}
