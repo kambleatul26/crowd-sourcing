@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatGridListModule, MatMenuModule, MatIconModule } from '@angular/material';
+import {MatStepperModule} from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { IndexComponent } from './index/index.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.component';
+import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
 
 @NgModule({
   declarations: [
@@ -20,23 +25,33 @@ import { IndexComponent } from './index/index.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    IndexComponent
+    IndexComponent,
+    DashboardComponent,
+    FundraiserBlogComponent,
+    FundraiserFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
+    MatStepperModule,
     RouterModule.forRoot([
       {path: 'home', component: IndexComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'dashboard',component:DashboardComponent},
       {path: '**', component: IndexComponent},
     ]),
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
