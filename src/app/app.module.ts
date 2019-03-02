@@ -19,6 +19,7 @@ import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.compo
 import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
 
 import { UserService } from './shared/services/user.service';
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { UserService } from './shared/services/user.service';
     MatMenuModule,
     MatIconModule,
     LayoutModule,
+    StorageServiceModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
