@@ -2,7 +2,7 @@ import { Injectable , Inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { StorageServiceModule} from 'angular-webstorage-service';
-import {SESSION_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class UserService {
   public data: any[] = [];
 
   onSignup(authData) {
-    this.http.post('http://192.168.43.169:8000/accounts/register/', authData)
+    this.http.post('http://192.168.43.169:8000/api/accounts/register/', authData)
     .subscribe(res => {
       console.log(res);
       this.router.navigate([parent]);
@@ -22,7 +22,7 @@ export class UserService {
   }
 
   onLogin(authData) {
-    this.http.post('http://192.168.43.169:8000/accounts/login/', authData)
+    this.http.post('http://192.168.43.169:8000/api/accounts/login/', authData)
     .subscribe(res => {
       console.log(res);
       this.router.navigate([parent]);
@@ -62,7 +62,7 @@ export class UserService {
     console.log(this.data);
     return this.data[key];
    }
-   constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private router: Router, private http: HttpClient) {
+   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private router: Router, private http: HttpClient) {
 
    }
 }

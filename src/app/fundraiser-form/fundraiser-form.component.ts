@@ -1,7 +1,6 @@
-//
-
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * @title Stepper overview
@@ -13,18 +12,17 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
  })
 
 export class FundraiserFormComponent implements OnInit {
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  public aadhar;
+  public otp;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  validateMail() {
+    this.http.post('http://192.168.43.169:8000/api/accounts/register/', this.aadhar).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
   }
 }
