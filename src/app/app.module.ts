@@ -4,7 +4,7 @@ import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule, MatSelectModule, MatCheckboxModule,  MatGridListModule, MatMenuModule, MatIconModule } from '@angular/material';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FundraiserBlogComponent } from './fundraiser-blog/fundraiser-blog.component';
 import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
+
+import { UserService } from './shared/services/user.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.compo
     MatIconModule,
     LayoutModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

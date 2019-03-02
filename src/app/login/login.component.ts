@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +13,10 @@ export class LoginComponent implements OnInit {
     if (Form.invalid) {
       return;
     }
+    this.userService.onLogin(Form);
   }
 
-  sign() {
-    this.router.navigate([parent]);
-    this.router.navigate(['/signup']);
-  }
-
-
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
