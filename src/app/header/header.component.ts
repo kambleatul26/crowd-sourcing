@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   logout() {
-    const authData = {password: '123456', email: 'mane@gmail.com'};
+    const authData = {password: '123456', email: this.userService.data['userName']};
     this.userService.onLogout(authData);
     this.loginFlag = false;
   }
