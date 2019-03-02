@@ -1,22 +1,22 @@
 <div class="container">
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+                <ng-template matStepLabel>Fill out your name</ng-template>
+                <label>AADHAR</label>
+                <input matInput [(ngModel)]="aadhar" type="number" placeholder="8888-8888-8888" class="myInput" name="Aadhar" required>
+                <button mat-button (click)="validateMail()">Submit</button>
+                <div *ngIf="aadhar !== undefined && aadhar.toString().length == 12">OTP
+                  <input matInput [(ngModel)]="otp" type="number" placeholder="OTP" class="myInput" required>
+                    <button mat-button matStepperNext>Submit</button>
+                </div>
+        </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-card-content *ngIf="otp !== undefined && otp.length == 6">
+          <mat-card-header>
+              <mat-card-title>Enter Fund Details</mat-card-title>
+            </mat-card-header>
       <mat-form-field>
         <input matInput placeholder="Title" formControlName="Title" required>
       </mat-form-field>
@@ -33,14 +33,11 @@
             {{relation}}
           </mat-option>
         </mat-select>
-
-        <!-- <mat-error *ngIf="relation.hasError('required')">Please choose a Relation</mat-error>
-        <mat-hint>{{relation.value?.sound}}</mat-hint> -->
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Type The Purpose of your Fundraiser" formControlName="Story"></textarea>
-    </mat-form-field>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Type The Purpose of your Fundraiser" formControlName="Story"></textarea>
+        </mat-form-field>
+    </mat-card-content>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -58,8 +55,8 @@
 </mat-horizontal-stepper>
 </div>
 
-
 <!-- Aadhar Number
+  432123968019
 OTP
 SUBMIT
 
