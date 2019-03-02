@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatTooltipModule, MatSelectModule, MatCheckboxModule, MatCardModule, MatButtonModule, MatToolbarModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,8 @@ import { IndexComponent } from './index/index.component';
   ],
   imports: [
     BrowserModule,
+    MatSelectModule,
+    MatTooltipModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -31,6 +33,7 @@ import { IndexComponent } from './index/index.component';
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
+    MatCheckboxModule,
     RouterModule.forRoot([
       {path: 'home', component: IndexComponent},
       {path: 'signup', component: SignupComponent},

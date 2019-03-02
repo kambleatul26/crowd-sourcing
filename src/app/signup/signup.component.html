@@ -8,22 +8,46 @@
               </mat-card-header>
               <form action="" (submit)="onSignup(postForm)" #postForm="ngForm">
                 <mat-card-content>
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Categories</mat-label>
+                        <mat-select placeholder="Category">
+                          <mat-option *ngFor="let c of categories" [value]="c.value">
+                            {{c.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
                         <input matInput type="email" placeholder="Email ID" name="email" ngModel required #mail="ngModel" email>
                         <mat-error *ngIf="mail.invalid">Please Enter Email</mat-error>
                     </mat-form-field>
-                      <mat-form-field>
+                      <mat-form-field appearance="outline">
+                          <mat-label>Full Name</mat-label>
                           <input matInput type="text" placeholder="Full Name" name="name" ngModel required #name="ngModel" name>
                           <mat-error *ngIf="name.invalid">Please Enter Full Name</mat-error>
                       </mat-form-field>
-                      <mat-form-field>
+                      <!-- <mat-form-field appearance="outline">
+                        <mat-label>City</mat-label>
+                        <mat-error *ngIf="city.invalid">Please Enter City</mat-error>
+                          <input matInput type="text" placeholder="City" name="city" ngModel required #city="ngModel" city>
+                      </mat-form-field>
+                      <small matTooltip="Example - To help a girl recovering from cancer">HINT*</small>
+                      <mat-form-field appearance="outline">
+                          <mat-label>Title</mat-label>
+                          <input matInput type="text" placeholder="Title" name="title" ngModel required #title="ngModel" title>
+                          <mat-error *ngIf="title.invalid">Please Enter Title</mat-error>
+                      </mat-form-field> -->
+                      <mat-form-field appearance="outline">
+                          <mat-label>Password</mat-label>
                           <input matInput type="password" placeholder="password" name="password" ngModel required #password="ngModel" password>
                           <mat-error *ngIf="password.invalid">Please Enter Password</mat-error>
                       </mat-form-field>
-                      <mat-form-field>
+                      <mat-form-field appearance="outline">
+                          <mat-label>Phone</mat-label>
                           <input matInput type="number" placeholder="Phone" name="phone" ngModel required #phone="ngModel" phone>
                           <mat-error *ngIf="phone.invalid">Please Enter Contact</mat-error>
                       </mat-form-field>
+                      <mat-checkbox name="private">Check me!</mat-checkbox>
                     </mat-card-content>
                     <mat-card-actions>
                       <button mat-raised-button type="submit" color="primary">Signup</button>
