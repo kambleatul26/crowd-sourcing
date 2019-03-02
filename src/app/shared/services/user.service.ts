@@ -11,6 +11,7 @@ export class UserService {
 
   public isLoggedIn = false;
   public data: any[];
+  public myLogData;
 
   onSignup(authData) {
     this.http.post('http://192.168.43.169:8000/accounts/register/', authData)
@@ -25,9 +26,10 @@ export class UserService {
     this.http.post('http://192.168.43.169:8000/accounts/login/', authData)
     .subscribe(res => {
       console.log(res);
+      this.myLogData = res;
       this.router.navigate([parent]);
       this.router.navigate(['/index']);
-      this.saveInLocal('key', authData.email);
+      this.saveInLocal('key', 'abc');
     });
   }
 
@@ -53,13 +55,13 @@ export class UserService {
   }
 
   saveInLocal(key, val): void {
-    console.log('recieved= key:' + key + 'value:' + val);
+    console.log('recieved = key:' + key + 'value:' + val);
     this.storage.set(key, val);
     this.data[key] = this.storage.get(key);
    }
    getFromLocal(key): void {
-    console.log('recieved= key:' + key);
-    this.data[key]= this.storage.get(key);
+    console.log('recieved = key:' + key);
+    this.data[key] = this.storage.get(key);
     console.log(this.data);
    }
    constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService,private router: Router, private http: HttpClient) {
