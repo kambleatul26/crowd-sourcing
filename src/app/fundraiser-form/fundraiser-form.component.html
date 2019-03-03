@@ -5,7 +5,7 @@
                 <label>AADHAR</label>
                 <input matInput [(ngModel)]="aadhar" type="number" placeholder="8888-8888-8888" class="myInput" name="Aadhar" required>
                 <button mat-button (click)="validateMail()">Submit</button>
-                <div *ngIf="aadhar !== undefined && aadhar.toString().length == 12">OTP
+                <div *ngIf="aadhar !== undefined && aadhar.toString().length == 9">OTP
                   <input matInput [(ngModel)]="otp" type="number" placeholder="OTP" class="myInput" required>
                     <button mat-button matStepperNext (click)="validateOtp()">Submit</button>
                 </div>

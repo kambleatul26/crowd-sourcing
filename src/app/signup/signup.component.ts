@@ -16,13 +16,6 @@ export interface Category {
 })
 export class SignupComponent implements OnInit {
 
-  categories: Category[] = [
-    {value: 'NGO', viewValue: 'NGO'},
-    {value: 'Medical', viewValue: 'Medical'},
-    {value: 'Personal Cause', viewValue: 'Personal Cause'},
-    {value: 'Creative Ideas', viewValue: 'Creative Ideas'}
-  ];
-
   onSignup(Form: NgForm) {
     if (Form.invalid) {
       return;

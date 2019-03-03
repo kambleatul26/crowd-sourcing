@@ -50,12 +50,12 @@ export class FundraiserFormComponent implements OnInit {
                       goal_amount: Form.value.Goal_Amont, beneficiary_name: Form.value.Beneficiary_Name,
                       relation_with: Form.value.Relation, purpose: Form.value.Story};
     console.log(FundData);
-    // this.http.post('http://192.168.43.169:8000/api/uidai/kyc/otp/', FundData)
-    // .subscribe(res => {
-    //   console.log(res);
-    // }, err => {
-    //   console.log(err['error']['detail']);
-    // });
+    this.http.post('http://192.168.43.169:8000/api/fundraisers/new/', FundData)
+    .subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err['error']['detail']);
+    });
   }
 
   constructor(private _formBuilder: FormBuilder, private http: HttpClient, private userService: UserService) {}
