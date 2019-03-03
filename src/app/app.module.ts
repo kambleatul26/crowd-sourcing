@@ -4,7 +4,7 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule,
-         MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule} from '@angular/material';
+         MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule, MatSidenavModule, MatTabsModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { RouterModule } from '@angular/router';
@@ -25,6 +25,7 @@ import { UserService } from './shared/services/user.service';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FundsListComponent } from './funds-list/funds-list.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
     FundraiserFormComponent,
     UserProfileComponent,
     ProfileComponent,
+    FundsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
+    MatTabsModule,
     MatCheckboxModule,
     MatStepperModule,
     RouterModule.forRoot([
@@ -60,6 +63,7 @@ import { ProfileComponent } from './profile/profile.component';
       {path: 'login', component: LoginComponent},
       {path: 'raisefund', canActivate: [AuthguardService], component: FundraiserFormComponent},
       {path: 'dashboard', component: DashboardComponent},
+      {path: 'funds_list', component: FundsListComponent},
       {path: 'profile', component: ProfileComponent},
       {path: '**', component: IndexComponent},
     ]),
@@ -67,6 +71,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatMenuModule,
     MatIconModule,
     LayoutModule,
+    MatSidenavModule,
     StorageServiceModule
   ],
   providers: [UserService, AuthguardService],
