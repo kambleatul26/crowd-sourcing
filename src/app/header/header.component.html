@@ -25,9 +25,7 @@
         </li>
         <button class="btn float-right nav-item dropdown" style="margin-left: 480px" *ngIf="loginFlag"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ userName }} <b class="caret"></b></a>
           <ul class="dropdown-menu">
-              <li><button class="btn" ><i class="fas fa-cog"></i> Preferences</button></li>
-              <li><button class="btn" ><i class="fa fa-envelope" aria-hidden="true"></i> Contact Support</button></li>
-              <li><button class="btn" routerLink="profile"><i class="fas fa-user"></i> Profile</button><li>
+              <li><button class="btn" routerLink="userProf"><i class="fas fa-user"></i> Profile</button><li>
               <li><button (click)="logout()" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></li>
           </ul>
         </button>
