@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../shared/services/user.service';
 
 /**
  * @title Stepper overview
@@ -30,10 +31,10 @@ export class FundraiserFormComponent implements OnInit {
   }
 
   validateOtp() {
-    this.http.get('http://192.168.43.169:8000/api/uidai/kyc/otp/' + this.aadhar + '/' + this.otp)
+    this.http.get('http://192.168.43.169:8000/api/uidai/kyc/otp/'  + '123456789/' + this.otp)
     .subscribe(res => {
       console.log(res);
-      if(res === 'success'){
+      if (res === 'success'){
         this.otpnext = true;
       }
     }, err => {
@@ -41,7 +42,23 @@ export class FundraiserFormComponent implements OnInit {
     });
   }
 
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient) {}
+  onSubmit(Form: NgForm) {
+    if (Form.invalid) {
+      return;
+    }
+    const FundData = {email: this.userService.getFromLocal('userName'), title: Form.value.Title,
+                      goal_amount: Form.value.Goal_Amont, beneficiary_name: Form.value.Beneficiary_Name,
+                      relation_with: Form.value.Relation, purpose: Form.value.Story};
+    console.log(FundData);
+    // this.http.post('http://192.168.43.169:8000/api/uidai/kyc/otp/', FundData)
+    // .subscribe(res => {
+    //   console.log(res);
+    // }, err => {
+    //   console.log(err['error']['detail']);
+    // });
+  }
+
+  constructor(private _formBuilder: FormBuilder, private http: HttpClient, private userService: UserService) {}
 
   ngOnInit() {
     this.secondFormGroup = this._formBuilder.group({

@@ -11,7 +11,7 @@
                 </div>
         </mat-step>
   <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" (submit)="onSubmit(postForm)" #postForm="ngForm">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-card-content *ngIf="otpnext">
           <mat-card-header>
@@ -37,6 +37,9 @@
       <mat-form-field class="example-full-width">
           <textarea matInput placeholder="Type The Purpose of your Fundraiser" formControlName="Story"></textarea>
         </mat-form-field>
+        <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary">SUBMIT</button>
+          </mat-card-actions>
     </mat-card-content>
       <div>
         <button mat-button matStepperPrevious>Back</button>

@@ -58,7 +58,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
       {path: 'login', component: LoginComponent},
       {path: 'raisefund', canActivate: [AuthguardService], component: FundraiserFormComponent},
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'profile', component:UserProfileComponent}
+      {path: 'profile', component:UserProfileComponent},
       {path: '**', component: IndexComponent},
     ]),
     MatGridListModule,
