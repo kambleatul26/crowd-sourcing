@@ -42,13 +42,6 @@ export class FundsListComponent implements OnInit {
             `Struggling to pen down a fundraiser story on your own? No worries, just use the template below:Hi,My name is (your name) and I am raising funds for (name of your project). This initiative/project/film/novel is about (add a brief description). I am an aspiring director/ singer/ writer/ musician (write a bit about your background) and want to create this for (what is the purpose of the project? How will it benefit?). Please help me fulfill my dream by contributing towards my project or sharing this fundraiser with your friends and family! We are grateful for your help!`,5000
         ));
 
-        this.CampaingList.push(new fundraiser_blog_post(
-            "My title",
-            "UserName",
-            10000,
-            `Struggling to pen down a fundraiser story on your own? No worries, just use the template below:Hi,My name is (your name) and I am raising funds for (name of your project). This initiative/project/film/novel is about (add a brief description). I am an aspiring director/ singer/ writer/ musician (write a bit about your background) and want to create this for (what is the purpose of the project? How will it benefit?). Please help me fulfill my dream by contributing towards my project or sharing this fundraiser with your friends and family! We are grateful for your help!`,5000
-        ));
-
     }
 
 

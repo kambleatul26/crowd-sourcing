@@ -25,7 +25,6 @@ import { UserService } from './shared/services/user.service';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { ProfileComponent } from './profile/profile.component';
 import { FundsListComponent } from './funds-list/funds-list.component';
-import { ValidationFormComponent } from './validation-form/validation-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { ValidationFormComponent } from './validation-form/validation-form.compo
     FundraiserFormComponent,
     ProfileComponent,
     FundsListComponent,
-    ValidationFormComponent,
   ],
   imports: [
     BrowserModule,
