@@ -1,36 +1,34 @@
 <mat-toolbar>
-  <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">WomenEMP</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav style="width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">WomenEMP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#" routerLink="home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="raisefund">Start a Fundraiser</a>
-        </li>
-        <li *ngIf="!loginFlag" style="margin-left: 480px" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#" routerLink="login">Login</a>
-            <a class="dropdown-item" href="#" routerLink="signup">Signup</a>
-          </div>
-        </li>
-        <button class="btn float-right nav-item dropdown" style="margin-left: 480px" *ngIf="loginFlag"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ userName }} <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-              <li><button class="btn" routerLink="userProf"><i class="fas fa-user"></i> Profile</button><li>
-              <li><button (click)="logout()" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></li>
-          </ul>
-        </button>
-      </ul>
-    </div>
-  </nav>
-</div>
-</mat-toolbar>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" routerLink="home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="raisefund">Start a Fundraiser</a>
+          </li>
+          <li *ngIf="!loginFlag" style="margin-left: 1000px" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" routerLink="login">Login</a>
+              <a class="dropdown-item" href="#" routerLink="signup">Signup</a>
+            </div>
+          </li>
+          <button class="btn float-right nav-item dropdown" style="margin-left: 1000px" *ngIf="loginFlag"><a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ userName }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><button class="btn" routerLink="userProf"><i class="fas fa-user"></i> Profile</button><li>
+                <li><button (click)="logout()" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></li>
+            </ul>
+          </button>
+        </ul>
+      </div>
+    </nav>
+  </mat-toolbar>

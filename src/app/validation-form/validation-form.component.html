@@ -21,12 +21,14 @@
                         <input matInput type="text" placeholder="Organization" name="organization" ngModel required #organization="ngModel" organization>
                         <mat-error *ngIf="organization.invalid">Please Enter Organization</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Document</mat-label>
-                      <input matInput type="file" placeholder="Company Registration Paper" name="doc" ngModel required #doc="ngModel" doc>
-                      <mat-error *ngIf="doc.invalid">Please Enter Organization</mat-error>
-                  </mat-form-field>
-                </mat-card-content>
+                    <div class="card bg-dark text-white">
+                      <img src="https://d2aq6dqxahe4ka.cloudfront.net/themes/front/images/default.jpg" class="card-img" alt="Responsive image" />
+                      <div class="card-img-overlay text-center">
+                        <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="importFile($event)" style="display:none" accept="image/*">
+                          <button (click)="fileUpload.click()" style="margin-top:20%;background:transparent;border: none;"><i class="fas fa-plus fa-10x" style="opacity:0.5 ;"></i> </button>
+                      </div>
+                    </div>
+                  </mat-card-content>
                   <mat-card-actions>
                     <button mat-raised-button type="submit" color="primary">Login</button>
                   </mat-card-actions>
