@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../shared/services/user.service';
 
@@ -34,7 +34,7 @@ export class FundraiserFormComponent implements OnInit {
     this.http.get('http://192.168.43.169:8000/api/uidai/kyc/otp/'  + '123456789/' + this.otp)
     .subscribe(res => {
       console.log(res);
-      if (res === 'success'){
+      if (res === 'success') {
         this.otpnext = true;
       }
     }, err => {
@@ -65,8 +65,8 @@ export class FundraiserFormComponent implements OnInit {
       Title: ['', Validators.required],
       Goal_Amont: ['', Validators.required],
       Beneficiary_Name: ['', Validators.required],
-      Relation: ['',Validators.required],
-      Story: ['',Validators.required]
+      Relation: ['', Validators.required],
+      Story: ['', Validators.required]
     });
   }
 }

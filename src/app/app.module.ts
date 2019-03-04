@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatTooltipModule,
          MatSelectModule, MatCheckboxModule, MatGridListModule, MatMenuModule, MatIconModule,
-         MatSidenavModule, MatTabsModule} from '@angular/material';
+         MatSidenavModule, MatTabsModule, MatProgressSpinnerModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { RouterModule } from '@angular/router';
@@ -17,12 +17,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { IndexComponent } from './index/index.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FundraiserFormComponent } from './fundraiser-form/fundraiser-form.component';
+import { ValidationFormComponent } from './validation-form/validation-form.component';
 
 import { UserService } from './shared/services/user.service';
-import { StorageServiceModule} from 'angular-webstorage-service';
+import { StorageServiceModule } from 'angular-webstorage-service';
 import { ProfileComponent } from './profile/profile.component';
 import { FundsListComponent } from './funds-list/funds-list.component';
 
@@ -34,10 +34,10 @@ import { FundsListComponent } from './funds-list/funds-list.component';
     LoginComponent,
     SignupComponent,
     IndexComponent,
-    DashboardComponent,
     FundraiserFormComponent,
     ProfileComponent,
     FundsListComponent,
+    ValidationFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +50,7 @@ import { FundsListComponent } from './funds-list/funds-list.component';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     MatInputModule,
     MatTabsModule,
     MatCheckboxModule,

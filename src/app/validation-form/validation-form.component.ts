@@ -21,14 +21,14 @@ export class ValidationFormComponent implements OnInit {
 
   onSubmit(Form: NgForm) {
     const organization = { userType: Form.value.u_type, organization: Form.value.organization, document: Form.value.doc};
-    this.http.post( "", organization)
+    this.http.post( '', organization)
     .subscribe(res => {
 
     });
   }
 
     importFile(event) {
-    if (event.target.files.length == 0) {
+    if (event.target.files.length === 0) {
        console.log('No file selected!');
        return;
     }

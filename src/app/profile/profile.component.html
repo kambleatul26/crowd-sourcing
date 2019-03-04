@@ -1,21 +1,17 @@
 <div class="container">
-        <h2>Your Fundraisers</h2>
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let posts of PostList">
-            <div class="card">
+  <h2>Your Fundraisers</h2>
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let posts of PostList">
+          <div class="card">
               <div class="card-body">
-                <h5 class="card-title">{{posts.blog_title}}</h5>
-                <small class="text-muted">-{{posts.blog_author}}</small>
-                <div class="float-right">{{posts.blog_amount}}</div>
-                <hr>
-                <p class="card-text">{{posts.blog_content}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">{{posts.blog_title}}</h5>
+                  <small class="text-muted">-{{posts.blog_author}}</small>
+                  <div class="float-right">{{posts.blog_amount}}</div>
+                  <hr>
+                  <p class="card-text">{{posts.blog_content}}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
-            </div>
-          </li>
-          <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li> -->
-      </ul>
+          </div>
+      </li>
+  </ul>
 </div>
